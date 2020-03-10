@@ -1,0 +1,161 @@
+﻿
+@{
+    ViewBag.Title = "Branch";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="content-wrapper">
+
+    <div class="container-fluid">
+
+        <!-- Add new vocational trainee- button -->
+        <div class="mb-3">
+            <button class="btn btn-primary" data-toggle="modal" data-target="#Branch">Add Branch</button>
+        </div>
+
+        <!-- Breadcrumbs-->
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="~/Home">Dashboard</a>
+            </li>
+            <li class="breadcrumb-item active">
+                Master
+            </li>
+            <li class="breadcrumb-item active">Branch</li>
+        </ol>
+
+        <!-- DataTables Example -->
+        <div class="card mb-3">
+            <div class="card-header">
+                <i class="fas fa-table"></i>
+                Branches
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Branch ID</th>
+                                <th>Branch</th>
+                                <th>Branch Name</th>
+                                <th>Course Name</th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <th>Branch ID</th>
+                                <th>Branch</th>
+                                <th>Branch Name</th>
+                                <th>Course Name</th>
+                            </tr>
+                        </tfoot>
+                        <tbody id="ListBranch">
+                            @foreach (var item in Model.ListBranch)
+                            {
+                                <tr>
+                                    <td>@item.BranchCode</td>
+                                    <td>@item.BranchName</td>
+                                    <td>@item.BranchShortDesc</td>
+                                    <td>@item.CourseName</td>
+                                </tr>
+
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+    <!-- /.container-fluid -->
+    <!-- Sticky Footer -->
+
+
+</div>
+<!-- /.content-wrapper -->
+<!------------------------------------------------Add branch----------------------------------------------------->
+<div class="modal fade" id="Branch" tabindex="-1" role="dialog" aria-labelledby="BranchTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="BranchTitle"><strong>Add Branch</strong></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!--<div class="container"> -->
+                <div class="card card-register">
+                    <!--  <div class="card-header">Register an Account</div> -->
+                    <div class="card-body">
+                        <form method="post" action="/Branch/InsertBranch">
+                            <div class="form-group">
+                                <div class="form-row">
+                                    <div class="col-md-4">
+                                        <div class="form-label-group">
+                                            @*<input type="number" DISABLED id="BranchID" class="form-control" placeholder="Branch ID" required="required" autofocus="autofocus">
+                                            <label for="BranchID">Branch ID</label>*@                                           
+                                            @Html.TextBox("BranchID", null, new { @class = "form-control", placeholder = "Branch ID", type = "number" })
+                                            @Html.Label("BranchID", new { @class = "label" })
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="form-label-group">
+                                            @*<input type="text" id="BranchCode" class="form-control" placeholder="Branch Code" required="required" autofocus="autofocus">
+                                            <label for="BranchCode">Branch Code</label>*@
+                                            @Html.TextBox("BranchCode", null, new { @class = "form-control", placeholder = "Branch Code", type = "text", autofocus = "autofocus", required = "required" })
+                                            @Html.Label("BranchCode", new { @class = "label" })
+
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-label-group">
+                                    @*<input type="text" id="BranchName" class="form-control" placeholder="Branch Name" required="required" autofocus="autofocus">
+                                    <label for="BranchName">Branch Name</label>*@
+                                    @Html.TextBox("BranchName", null, new { @class = "form-control", placeholder = "Branch Name", type = "text", autofocus = "autofocus", required = "required" })
+                                    @Html.Label("BranchName", new { @class = "label" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-label-group">
+                                    <input type="text" id="CourseDescription" class="form-control" placeholder="Course Description" required="required" autofocus="autofocus">
+                                    <label for="CourseDescription">Course Description</label>
+                                    @Html.TextBox("CourseDescription", null, new { @class = "form-control", placeholder = "Course Description", type = "text", autofocus = "autofocus", required = "required" })
+                                    @Html.Label("CourseDescription", new { @class = "label" })
+                                </div>
+                            </div>
+                            @*<a class="btn btn-primary btn-block" href="#" data-toggle="modal" data-target="#SavedRecordModal">Save</a>*@
+                             <button type="submit" class="btn btn-primary btn-block" id="btnSubmit"  data-toggle="modal" data-target="#SavedRecordModal">Login</button> 
+                        </form>
+                    </div>
+                    <!-- </div> -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Record Saved Modal -->
+<div class="modal fade" id="SavedRecordModal" tabindex="-1" role="dialog" aria-labelledby="SavedRecordModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="SavedRecordModalLabel">Records Saved</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">@ViewBag.Message</div>
+        </div>
+    </div>
+</div>

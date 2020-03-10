@@ -1,0 +1,220 @@
+﻿
+@{
+    ViewBag.Title = "GetVTListForDoc";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="content-wrapper">
+    <div class="container-fluid">
+
+
+
+        <!--     <div class="container"> -->
+        <div class="card card-register">
+            <div class="card-header">
+                Document Generation
+            </div>
+            <div class="card-body panel-default active">
+                <form method="post" action="/VTDetails/GetVTListForDoc">
+                    <div class="form-group">
+                        <div class="form-row">
+                            <div class="col-md-3">
+                                <div class="form-label-group">
+                                    @Html.TextBox("VTcode", null, new { @class = "form-control", placeholder = "VT Code", type = "number", autofocus = "autofocus" })
+                                    @Html.Label("VTcode", new { @class = "label" })
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-label-group">
+                                    @Html.TextBox("Name", null, new { @class = "form-control", placeholder = "Name", autofocus = "autofocus" })
+                                    @Html.Label("Name", new { @class = "label" })
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-label-group">
+                                    @Html.TextBox("University", null, new { @class = "form-control", placeholder = "University", autofocus = "autofocus" })
+                                    @Html.Label("University", new { @class = "label" })
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-label-group">
+                                    @Html.TextBox("Institute", null, new { @class = "form-control", placeholder = "Institute", autofocus = "autofocus" })
+                                    @Html.Label("Institute", new { @class = "label" })
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-row">
+                            <div class="col-md-3">
+                                <div class="form-label-group">
+                                    @Html.TextBox("Course", null, new { @class = "form-control", placeholder = "Course", autofocus = "autofocus" })
+                                    @Html.Label("Course", new { @class = "label" })
+
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-label-group">
+                                    @Html.TextBox("Branch", null, new { @class = "form-control", placeholder = "Branch", autofocus = "autofocus" })
+                                    @Html.Label("Branch", new { @class = "label" })
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-label-group">
+                                    @Html.TextBox("VTStartDate", null, new { @class = "form-control", placeholder = "VTStartDate", type = "date", autofocus = "autofocus" })
+                                    @Html.Label("VTStartDate", new { @class = "label" })
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-label-group">
+                                    @Html.TextBox("VTEndDate", null, new { @class = "form-control", placeholder = "VTEndDate", type = "date", autofocus = "autofocus" })
+                                    @Html.Label("VTEndDate", new { @class = "label" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div align="center">
+                        <input type="button" value="Query" class="btn btn-primary" onclick="btnSearch()" />
+                    </div>
+
+
+
+
+
+                </form>
+            </div>
+        </div>
+
+
+        <div class="card mb-3">
+            <div class="card-header">
+                <i class="fas fa-table"></i>
+                Query Result
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>VT Code</th>
+                                <th>Name</th>
+                                <th>Institute</th>
+                                <th>Course</th>
+                                <th>Branch</th>
+                                <th>Start Date</th>
+                                <th>End Date</th>
+                                <th>Document</th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <th>VT Code</th>
+                                <th>Name</th>
+                                <th>Institute</th>
+                                <th>Course</th>
+                                <th>Branch</th>
+                                <th>Start Date</th>
+                                <th>End Date</th>
+                                <th>Document</th>
+                            </tr>
+                        </tfoot>
+                        <tbody>
+                            <tr>
+                                <td>12001</td>
+                                <td>Ramesh Kumar</td>
+                                <td>IIT</td>
+                                <td>B.Tech</td>
+                                <td>Mechanical</td>
+                                <td>03-March-2018</td>
+                                <td>03-June-2018</td>
+                                <td><button class="btn btn-primary">Gatepass</button> <button class="btn btn-primary">Undertaking</button> <button class="btn btn-primary">Certificate</button> <button class="btn btn-primary">Identity Proof</button></td>
+                            </tr>
+                            <tr>
+                                <td>12002</td>
+                                <td>Ram Kishore</td>
+                                <td>IIT BHU</td>
+                                <td>B.Tech</td>
+                                <td>Chemical</td>
+                                <td>03-March-2018</td>
+                                <td>03-July-2018</td>
+                                <td><button class="btn btn-primary">Gatepass</button> <button class="btn btn-primary">Undertaking</button> <button class="btn btn-primary">Certificate</button> <button class="btn btn-primary">Identity Proof</button></td>
+                            </tr>
+                            <tr>
+                                <td>12003</td>
+                                <td>Jai Kishan</td>
+                                <td>BITS Pilani</td>
+                                <td>B.E.</td>
+                                <td>Electrical</td>
+                                <td>03-March-2018</td>
+                                <td>03-December-2018</td>
+                                <td><button class="btn btn-primary">Gatepass</button> <button class="btn btn-primary">Undertaking</button> <button class="btn btn-primary">Certificate</button> <button class="btn btn-primary">Identity Proof</button></td>
+                            </tr>
+                            <tr>
+                                <td>12003</td>
+                                <td>Jai Kishan</td>
+                                <td>BITS Pilani</td>
+                                <td>B.E.</td>
+                                <td>Electrical</td>
+                                <td>03-March-2018</td>
+                                <td>03-December-2018</td>
+                                <td><button class="btn btn-primary">Gatepass</button> <button class="btn btn-primary">Undertaking</button> <button class="btn btn-primary">Certificate</button> <button class="btn btn-primary">Identity Proof</button></td>
+                            </tr>
+                            <tr>
+                                <td>12003</td>
+                                <td>Jai Kishan</td>
+                                <td>BITS Pilani</td>
+                                <td>B.E.</td>
+                                <td>Electrical</td>
+                                <td>03-March-2018</td>
+                                <td>03-December-2018</td>
+                                <td><button class="btn btn-primary">Gatepass</button> <button class="btn btn-primary">Undertaking</button> <button class="btn btn-primary">Certificate</button> <button class="btn btn-primary">Identity Proof</button></td>
+                            </tr>
+                            <tr>
+                                <td>12003</td>
+                                <td>Jai Kishan</td>
+                                <td>BITS Pilani</td>
+                                <td>B.E.</td>
+                                <td>Electrical</td>
+                                <td>03-March-2018</td>
+                                <td>03-December-2018</td>
+                                <td><button class="btn btn-primary">Gatepass</button> <button class="btn btn-primary">Undertaking</button> <button class="btn btn-primary">Certificate</button> <button class="btn btn-primary">Identity Proof</button></td>
+                            </tr>
+                            <tr>
+                                <td>12003</td>
+                                <td>Jai Kishan</td>
+                                <td>BITS Pilani</td>
+                                <td>B.E.</td>
+                                <td>Electrical</td>
+                                <td>03-March-2018</td>
+                                <td>03-December-2018</td>
+                                <td><button class="btn btn-primary">Gatepass</button> <button class="btn btn-primary">Undertaking</button> <button class="btn btn-primary">Certificate</button> <button class="btn btn-primary">Identity Proof</button></td>
+                            </tr>
+                            <tr>
+                                <td>12003</td>
+                                <td>Jai Kishan</td>
+                                <td>BITS Pilani</td>
+                                <td>B.E.</td>
+                                <td>Electrical</td>
+                                <td>03-March-2018</td>
+                                <td>03-December-2018</td>
+                                <td><button class="btn btn-primary">Gatepass</button> <button class="btn btn-primary">Undertaking</button> <button class="btn btn-primary">Certificate</button> <button class="btn btn-primary">Identity Proof</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+
+
+
+    </div>
+
+
+</div>
+
+
+
+

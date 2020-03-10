@@ -1,0 +1,995 @@
+﻿
+@{
+    ViewBag.Title = "EnrollNewVT";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="content-wrapper">
+    <div class="container-fluid">
+
+
+        <!-- Progress Bar -->
+        <div class="card card-register">
+            <div class="card-header" style="font-size:16px">
+                <div class="row">
+                    <div class="col-md-6">
+                        <strong>Application Progress of Vocational Trainee</strong>
+                    </div>
+                    <div class="col-md-6" align="right">
+                        <form>                         
+                            <button type="submit" class="btn btn-primary" formaction="~/ListOfVT/GenerateVTPDF">
+                                <i class="fas fa-file-pdf fa-fw" style="color: #ffffff"></i>
+                                Generate PDF
+                            </button>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+            <div class=" class-body panel-default progress">
+                <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 70%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+        </div>
+        <br />
+
+
+        <ul class="nav nav-tabs" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="information-tab" data-toggle="tab" href="#information" role="tab" aria-controls="information"
+                   aria-selected="true">Vocational Trainee - Enrollment Information</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="evaluation-tab" data-toggle="tab" href="#evaluation" role="tab" aria-controls="evaluation"
+                   aria-selected="false">Vocational Trainee - Training Evaluation</a>
+            </li>
+
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane fade show active" id="information" role="tabpanel" aria-labelledby="information-tab">
+                <!-- Information-->
+                <!--     <div class="container"> -->
+                <div class="card card-register" id="accordion">
+                    <div class="card-header">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">Basic Information</a>
+                    </div>
+                    <div id="collapse1" class="card-body panel-default active">
+                        <form>
+                            <div class="form-group">
+                                <div class="form-row">
+                                    <div class="col-md-3">
+                                        <div class="form-label-group">
+                                            <input type="number" id="VTcode" class="form-control" placeholder="VT Code" required="required" autofocus="autofocus">
+                                            <label for="VTcode">VT Code</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-label-group">
+                                            <input type="text" id="Name" class="form-control" placeholder="Name" required="required" autofocus="autofocus">
+                                            <label for="Name">Name</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <div class="form-label-group">
+                                            <input type="date" id="DOB" class="form-control" placeholder="Date Of Birth" required="required">
+                                            <label for="DOB">Date of Birth</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-row">
+                                    <div class="col-md-3">
+                                        <div class="form-label-group">
+                                            <input type="text" id="FName" class="form-control" placeholder="Father name" required="required" autofocus="autofocus">
+                                            <label for="FName">Father Name</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-label-group">
+                                            <input type="number" id="ContactNo" class="form-control" placeholder="Contact Number" required="required">
+                                            <label for="ContactNo">Contact No.</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-label-group">
+                                            <input type="number" id="AltContactNo" class="form-control" placeholder="Alternate Contact Number" required="required">
+                                            <label for="AltContactNo">Alt Contact Number</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="form-label-group">
+                                    <input type="text" id="Address" class="form-control" placeholder="Address" required="required">
+                                    <label for="Address">Address</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-row">
+                                    <div class="col-md-3">
+                                        <div class="form-label-group">
+                                            <input type="text" id="City" class="form-control" placeholder="City" required="required">
+                                            <label for="City">City</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-label-group">
+                                            <input type="text" id="State" class="form-control" placeholder="State" required="required">
+                                            <label for="State">State</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-label-group">
+                                            <input type="number" id="Pincode" class="form-control" placeholder="Pincode" required="required">
+                                            <label for="Pincode">Pincode</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-label-group">
+                                            <input type="email" id="Email" class="form-control" placeholder="Email address" required="required">
+                                            <label for="Email">Email</label>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!--  </div>   basic information ends    container    -->
+                <!-- Academic Qualification Begins -->
+
+                <div class="card card-register" id="accordion">
+                    <div class="card-header">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">Academic Qualification</a>
+                    </div>
+                    <div id="collapse2" class="card-body panel-collapse collapse in">
+                        <form>
+                            <div class="form-group">
+                                <div class="form-row">
+                                    <div class="col-md-3">
+                                        <div class="form-label-group">
+                                            <input type="text" id="Course" class="form-control" placeholder="Course" required="required" autofocus="autofocus">
+                                            <label for="Course">Course</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-label-group">
+                                            <input type="year" id="Batch" class="form-control" placeholder="Batch" required="required">
+                                            <label for="Batch">Batch</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-label-group">
+                                            <input type="number" id="Semester" class="form-control" placeholder="Semester" required="required">
+                                            <label for="Semester">Semester</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-row">
+                                    <div class="col-md-6">
+                                        <div class="form-label-group">
+                                            <input type="text" id="Branch" class="form-control" placeholder="Branch" required="required" autofocus="autofocus">
+                                            <label for="Branch">Branch</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="form-label-group">
+                                            <input type="text" id="Institute" class="form-control" placeholder="Insititute" required="required">
+                                            <label for="Institute">Institute</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="form-row">
+                                    <div class="col-md-8">
+                                        <div class="form-label-group">
+                                            <input type="text" id="University" class="form-control" placeholder="University" required="required" autofocus="autofocus">
+                                            <label for="University">University</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <div class="form-label-group">
+                                            <input type="number" id="UniversityCont" class="form-control" placeholder="UniversityCont" required="required">
+                                            <label for="UniversityCont">University Contact No.</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-row">
+                                    <div class="col-md-3">
+                                        <div class="form-label-group">
+                                            <input type="text" id="City" class="form-control" placeholder="City" required="required">
+                                            <label for="City">City</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-label-group">
+                                            <input type="text" id="State" class="form-control" placeholder="State" required="required">
+                                            <label for="State">State</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-label-group">
+                                            <input type="number" id="Pincode" class="form-control" placeholder="Pincode" required="required">
+                                            <label for="Pincode">Pincode</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-label-group">
+                                            <input type="email" id="Email" class="form-control" placeholder="Email address" required="required">
+                                            <label for="Email">Email</label>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!-- Professional Qualification ends-->
+                <!-- Medical Fitness Begins -->
+                <div class="card card-register" id="accordion">
+                    <div class="card-header">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">Medical Fitness & Training Recommendation</a>
+                    </div>
+                    <div id="collapse3" class="card-body panel-collapse collapse in">
+                        <form>
+                            <div class="form-group">
+                                <div class="form-row">
+                                    <div class="col-md-2" style="padding-top:9px">
+                                        <strong>Medical Fitness</strong>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-label-group">
+                                            <input type="text" id="DoctorName" class="form-control" placeholder="Doctor Name" required="required">
+                                            <label for="DoctorName">Doctor Name</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-label-group">
+                                            <input type="number" id="DocRegistrationNo" class="form-control" placeholder="Doctor Registration No" required="required">
+                                            <label for="DocRegistrationNo">Doctor Registration No</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <div class="form-label-group">
+                                            <input type="text" id="MedicalRemarks" class="form-control" placeholder="Medical Remarks" required="required" autofocus="autofocus">
+                                            <label for="MedicalRemarks">Medical Fitness Remarks</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-row">
+                                    <div class="col-md-2" style="padding-top:9px">
+                                        <strong>Training Recommendation</strong>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-label-group">
+                                            <select name="Recommendation" class="form-control">
+                                                <option selected>IFFCO Employee
+                                                <option>Others
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-label-group">
+                                            <input type="number" id="IFFCORecomPersonalNo" class="form-control" placeholder="IFFCO Recommender Personal No." required="required">
+                                            <label for="IFFCORecomPersonalNo">Personal No.</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <div class="form-label-group">
+                                            <input type="text" id="IFFCORecommendationName" class="form-control" placeholder="IFFCO Recommender Name" required="required">
+                                            <label for="IFFCORecommendationName">Employee Name</label>
+                                        </div>
+                                    </div>
+                                    <!--      <div class="col-md-8">
+                                            <div class="form-label-group">
+                                              <input type="text" id="RecommendationName" class="form-control" placeholder="Recommender Name" required="required">
+                                              <label for="RecommendationName">Recommender Name</label>
+                                            </div>
+                                          </div>       -->
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!-- Medical Fitness ends-->
+                <!-- File Upload Begins -->
+                <div class="card card-register" id="accordion">
+                    <div class="card-header">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse4">Document Upload</a>
+                    </div>
+                    <div id="collapse4" class="card-body panel-collapse collapse in">
+                        <form>
+                            <div class="form-group">
+                                <div class="form-row">
+                                    <div class="col-md-4">
+                                        1. Attach Photograph of the Applicant
+                                    </div>
+                                    <div class="col-md-8">
+                                        <input type="file" id="Photograph" required="required">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-row">
+                                    <div class="col-md-4" style='margin-top:10px;'>
+                                        2. Select the type of Identity Proof and Attach the document (PDF)
+                                    </div>
+
+                                    <div class="col-md-2" style='margin-top:10px;'>
+                                        <div class="form-label-group">
+                                            <!-- <input type="text" id="Branch" class="form-control" placeholder="Branch" required="required" autofocus="autofocus">
+                                             <label for="Branch">Branch</label> -->
+                                            <select name="Indentity Proof">
+                                                <option selected>Aadhaar Letter/Card
+                                                <option>Voter's Identity Card
+                                                <option>Driving Licence
+                                                <option>NREGA Card
+                                                <option>Passport
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-label-group">
+                                            <input type="IdentityProof" id="IdentityProof" class="form-control" placeholder="Identity Proof" required="required">
+                                            <label for="IdentityProof">Identity Proof</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3" align="center" style='margin-top:10px;'>
+                                        <input type="file" id="IdentityProoF" required="required">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="form-row">
+                                    <div class="col-md-4">
+                                        3. Attach the scanned copy of the Undertaking (PDF)
+                                    </div>
+                                    <div class="col-md-2">
+                                        <input type="file" id="Photograph" required="required">
+                                    </div>
+                                    <div class="col-md-6">
+                                        Download Sample
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!-- File Upload ends-->
+                <!-- Declaration Begins -->
+                <div class="card card-register" id="accordion">
+                    <div class="card-header">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse5">Declaration</a>
+                    </div>
+                    <div id="collapse5" class="card-body panel-collapse collapse in">
+                        <div class="form-group">
+                            <div class="form-row">
+                                <div class="col-md-4" style='margin-top:10px;'>
+                                    Declaration Submission status :
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="form-label-group">
+                                        <select name="Boolean" class="form-control">
+                                            <option selected>No
+                                            <option>Yes
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-3" align="center" style='margin-top:10px;'>
+                                    <input type="file" id="IdentityProoF" required="required">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- Declaration ends -->
+                <!--Information Ends -->
+            </div>
+            <div class="tab-pane fade" id="evaluation" role="tabpanel" aria-labelledby="evaluation-tab">
+                <!-- Training Evaluation-->
+                <!-- Basic Training Details-->
+                <div class="card card-register" id="accordion">
+                    @*<div class="card-header">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse6">Basic Training Details</a>
+                    </div>
+                    <div id="collapse6" class="card-body panel-default active">
+                        <form>
+                            <div class="form-group">
+                                <div class="form-row">
+                                    <div class="col-md-3">
+                                        <div class="form-label-group">
+                                            <input type="date" id="VTStartDate" class="form-control" placeholder="VT Start Date" required="required" autofocus="autofocus">
+                                            <label for="VTStartDate">VT Start Date</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-label-group">
+                                            <input type="date" id="VTEndDate" class="form-control" placeholder="VT End Date" required="required" autofocus="autofocus">
+                                            <label for="VTEndDate">VT End Date</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-row">
+                                    <div class="col-md-4">
+                                        3. Attach the scanned copy of the Undertaking (PDF)
+                                    </div>
+                                    <div class="col-md-2">
+                                        <input type="file" id="Photograph" required="required">
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>*@
+                   
+                <!--Ability to Learn-->
+                <div class="card card-register" id="accordion">
+                    <div class="card-header">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse7">Ability to Learn</a>
+                    </div>
+                    <div id="collapse7" class="card-body panel-default active">
+                        <form>
+                            <div class="form-group">
+                                <div class="form-row">
+                                    <div class="col-md-4">
+                                        1. Observes and/or pays attention to others.
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="form-label-group">
+                                            <select name="Evaluate" class="form-control">
+                                                <option selected>Not Applicable
+                                                <option>Excellent
+                                                <option>Good
+                                                <option>Fair
+                                                <option>Needs Improvement
+                                                <option>Unsatisfactory
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-row">
+                                    <div class="col-md-4" style='margin-top:10px;'>
+                                        2. Asks pertinent aur purposeful questions.
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="form-label-group">
+                                            <select name="Evaluate" class="form-control">
+                                                <option selected>Not Applicable
+                                                <option>Excellent
+                                                <option>Good
+                                                <option>Fair
+                                                <option>Needs Improvement
+                                                <option>Unsatisfactory
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="form-row">
+                                    <div class="col-md-4">
+                                        3. Seeks out and utilizes appropiate resources.
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="form-label-group">
+                                            <select name="Evaluate" class="form-control">
+                                                <option selected>Not Applicable
+                                                <option>Excellent
+                                                <option>Good
+                                                <option>Fair
+                                                <option>Needs Improvement
+                                                <option>Unsatisfactory
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-row">
+                                    <div class="col-md-4">
+                                        4. Open to new experiences; takes appropiate risks.
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="form-label-group">
+                                            <select name="Evaluate" class="form-control">
+                                                <option selected>Not Applicable
+                                                <option>Excellent
+                                                <option>Good
+                                                <option>Fair
+                                                <option>Needs Improvement
+                                                <option>Unsatisfactory
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!--Reading / Writing / Computation Skills-->
+                <div class="card card-register" id="accordion">
+                    <div class="card-header">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse8">Reading / Writing / Computation Skills</a>
+                    </div>
+                    <div id="collapse8" class="card-body panel-collapse collapse in">
+                        <form>
+                            <div class="form-group">
+                                <div class="form-row">
+                                    <div class="col-md-4">
+                                        1. Reads, comprehends and follows written materials.
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="form-label-group">
+                                            <select name="Evaluate" class="form-control">
+                                                <option selected>Not Applicable
+                                                <option>Excellent
+                                                <option>Good
+                                                <option>Fair
+                                                <option>Needs Improvement
+                                                <option>Unsatisfactory
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-row">
+                                    <div class="col-md-4" style='margin-top:10px;'>
+                                        2. Communicates ideas and concepts clealy in writing.
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="form-label-group">
+                                            <select name="Evaluate" class="form-control">
+                                                <option selected>Not Applicable
+                                                <option>Excellent
+                                                <option>Good
+                                                <option>Fair
+                                                <option>Needs Improvement
+                                                <option>Unsatisfactory
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!--Listening and Oral Communication Skills-->
+                <div class="card card-register" id="accordion">
+                    <div class="card-header">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse9">Listening and Oral Communication Skills</a>
+                    </div>
+                    <div id="collapse9" class="card-body panel-collapse collapse in">
+                        <form>
+                            <div class="form-group">
+                                <div class="form-row">
+                                    <div class="col-md-4">
+                                        1. Listens to others in an active and attentive manner.
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="form-label-group">
+                                            <select name="Evaluate" class="form-control">
+                                                <option selected>Not Applicable
+                                                <option>Excellent
+                                                <option>Good
+                                                <option>Fair
+                                                <option>Needs Improvement
+                                                <option>Unsatisfactory
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-row">
+                                    <div class="col-md-4" style='margin-top:10px;'>
+                                        2. Comprehends and follows verbal instructions.
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="form-label-group">
+                                            <select name="Evaluate" class="form-control">
+                                                <option selected>Not Applicable
+                                                <option>Excellent
+                                                <option>Good
+                                                <option>Fair
+                                                <option>Needs Improvement
+                                                <option>Unsatisfactory
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-row">
+                                    <div class="col-md-4" style='margin-top:10px;'>
+                                        3. Effecively participates in meetings and group interaction sessions.
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="form-label-group">
+                                            <select name="Evaluate" class="form-control">
+                                                <option selected>Not Applicable
+                                                <option>Excellent
+                                                <option>Good
+                                                <option>Fair
+                                                <option>Needs Improvement
+                                                <option>Unsatisfactory
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-row">
+                                    <div class="col-md-4" style='margin-top:10px;'>
+                                        4. Demonstrates effective verbal communication skills.
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="form-label-group">
+                                            <select name="Evaluate" class="form-control">
+                                                <option selected>Not Applicable
+                                                <option>Excellent
+                                                <option>Good
+                                                <option>Fair
+                                                <option>Needs Improvement
+                                                <option>Unsatisfactory
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!--Creative Thinking and Problem Solving Skills-->
+                <div class="card card-register" id="accordion">
+                    <div class="card-header">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse10">Creative Thinking and Problem Solving Skills</a>
+                    </div>
+                    <div id="collapse10" class="card-body panel-collapse collapse in">
+                        <form>
+                            <div class="form-group">
+                                <div class="form-row">
+                                    <div class="col-md-4">
+                                        1. Seeks to comprehend and understand the 'The Big Picture'.
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="form-label-group">
+                                            <select name="Evaluate" class="form-control">
+                                                <option selected>Not Applicable
+                                                <option>Excellent
+                                                <option>Good
+                                                <option>Fair
+                                                <option>Needs Improvement
+                                                <option>Unsatisfactory
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-row">
+                                    <div class="col-md-4" style='margin-top:10px;'>
+                                        2. Respects input and ideas from other sources and people.
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="form-label-group">
+                                            <select name="Evaluate" class="form-control">
+                                                <option selected>Not Applicable
+                                                <option>Excellent
+                                                <option>Good
+                                                <option>Fair
+                                                <option>Needs Improvement
+                                                <option>Unsatisfactory
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-row">
+                                    <div class="col-md-4" style='margin-top:10px;'>
+                                        3. Demonstrates an analytical capacity.
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="form-label-group">
+                                            <select name="Evaluate" class="form-control">
+                                                <option selected>Not Applicable
+                                                <option>Excellent
+                                                <option>Good
+                                                <option>Fair
+                                                <option>Needs Improvement
+                                                <option>Unsatisfactory
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!--Professional and Career Development Skills-->
+                <div class="card card-register" id="accordion">
+                    <div class="card-header">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse11">Professional and Career Development Skills</a>
+                    </div>
+                    <div id="collapse11" class="card-body panel-collapse collapse in">
+                        <form>
+                            <div class="form-group">
+                                <div class="form-row">
+                                    <div class="col-md-4">
+                                        1. Seeks to understand personal strengths and weaknesses.
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="form-label-group">
+                                            <select name="Evaluate" class="form-control">
+                                                <option selected>Not Applicable
+                                                <option>Excellent
+                                                <option>Good
+                                                <option>Fair
+                                                <option>Needs Improvement
+                                                <option>Unsatisfactory
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-row">
+                                    <div class="col-md-4" style='margin-top:10px;'>
+                                        2. Exhibits professional behaviour and attitude.
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="form-label-group">
+                                            <select name="Evaluate" class="form-control">
+                                                <option selected>Not Applicable
+                                                <option>Excellent
+                                                <option>Good
+                                                <option>Fair
+                                                <option>Needs Improvement
+                                                <option>Unsatisfactory
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-row">
+                                    <div class="col-md-4" style='margin-top:10px;'>
+                                        3. Manages personal expectations consistent with work role.
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="form-label-group">
+                                            <select name="Evaluate" class="form-control">
+                                                <option selected>Not Applicable
+                                                <option>Excellent
+                                                <option>Good
+                                                <option>Fair
+                                                <option>Needs Improvement
+                                                <option>Unsatisfactory
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-row">
+                                    <div class="col-md-4" style='margin-top:10px;'>
+                                        4. Shows interest in determining career direction.
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="form-label-group">
+                                            <select name="Evaluate" class="form-control">
+                                                <option selected>Not Applicable
+                                                <option>Excellent
+                                                <option>Good
+                                                <option>Fair
+                                                <option>Needs Improvement
+                                                <option>Unsatisfactory
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!--Organizational Effectiveness Skills-->
+                <div class="card card-register" id="accordion">
+                    <div class="card-header">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse12">Organizational Effectiveness Skills</a>
+                    </div>
+                    <div id="collapse12" class="card-body panel-collapse collapse in">
+                        <form>
+                            <div class="form-group">
+                                <div class="form-row">
+                                    <div class="col-md-4">
+                                        1. Seeks to understand and support the organisation's mission/goals.
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="form-label-group">
+                                            <select name="Evaluate" class="form-control">
+                                                <option selected>Not Applicable
+                                                <option>Excellent
+                                                <option>Good
+                                                <option>Fair
+                                                <option>Needs Improvement
+                                                <option>Unsatisfactory
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-row">
+                                    <div class="col-md-4" style='margin-top:10px;'>
+                                        2. Fits in with the norms and expectations of the organization.
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="form-label-group">
+                                            <select name="Evaluate" class="form-control">
+                                                <option selected>Not Applicable
+                                                <option>Excellent
+                                                <option>Good
+                                                <option>Fair
+                                                <option>Needs Improvement
+                                                <option>Unsatisfactory
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-row">
+                                    <div class="col-md-4" style='margin-top:10px;'>
+                                        3. Works within appropiate authority and decision-making channels.
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="form-label-group">
+                                            <select name="Evaluate" class="form-control">
+                                                <option selected>Not Applicable
+                                                <option>Excellent
+                                                <option>Good
+                                                <option>Fair
+                                                <option>Needs Improvement
+                                                <option>Unsatisfactory
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-row">
+                                    <div class="col-md-4" style='margin-top:10px;'>
+                                        4. Interacts effectively and appropiately with supervisor.
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="form-label-group">
+                                            <select name="Evaluate" class="form-control">
+                                                <option selected>Not Applicable
+                                                <option>Excellent
+                                                <option>Good
+                                                <option>Fair
+                                                <option>Needs Improvement
+                                                <option>Unsatisfactory
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!--Basic Work Skills-->
+                <div class="card card-register" id="accordion">
+                    <div class="card-header">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse13">Basic Work Skills</a>
+                    </div>
+                    <div id="collapse13" class="card-body panel-collapse collapse in">
+                        <form>
+                            <div class="form-group">
+                                <div class="form-row">
+                                    <div class="col-md-4">
+                                        1. Is prompt in showing up to work and meetings.
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="form-label-group">
+                                            <select name="Evaluate" class="form-control">
+                                                <option selected>Not Applicable
+                                                <option>Excellent
+                                                <option>Good
+                                                <option>Fair
+                                                <option>Needs Improvement
+                                                <option>Unsatisfactory
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-row">
+                                    <div class="col-md-4" style='margin-top:10px;'>
+                                        2. Exhibits a positive and constructive attitude.
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="form-label-group">
+                                            <select name="Evaluate" class="form-control">
+                                                <option selected>Not Applicable
+                                                <option>Excellent
+                                                <option>Good
+                                                <option>Fair
+                                                <option>Needs Improvement
+                                                <option>Unsatisfactory
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-row">
+                                    <div class="col-md-4" style='margin-top:10px;'>
+                                        3. Behaves in an ethical and professional manner.
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="form-label-group">
+                                            <select name="Evaluate" class="form-control">
+                                                <option selected>Not Applicable
+                                                <option>Excellent
+                                                <option>Good
+                                                <option>Fair
+                                                <option>Needs Improvement
+                                                <option>Unsatisfactory
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a class="btn btn-primary btn-block" href="#"  data-toggle="modal" data-target="#SavedRecordModal">Save</a>
+    </div>
+    <!-- /.container-fluid -->
+
+
+</div>
+<!-- /.content-wrapper -->

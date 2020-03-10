@@ -1,0 +1,180 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div id="content-wrapper">
+
+    <div class="container-fluid">
+
+        <!-- Breadcrumbs-->
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="#">Dashboard</a>
+            </li>
+            <li class="breadcrumb-item active">Overview</li>
+        </ol>
+
+        <!-- Icon Cards-->
+        <div class="row">
+            <div class="col-xl-3 col-sm-6 mb-3">
+                <div class="card text-white bg-primary o-hidden h-100">
+                    <div class="card-body">
+                        <div class="card-body-icon">
+                            <i class="fas fa-fw fa-list-alt"></i>
+                        </div>
+
+                        <div class="mr-5">26 Active Trainees in @Session["UNIT_NAME"]</div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-xl-3 col-sm-6 mb-3">
+                <div class="card text-white bg-info o-hidden h-100">
+                    <div class="card-body">
+                        <div class="card-body-icon">
+                            <i class="fas fa-fw fa-th-list"></i>
+                        </div>
+                        <div class="mr-5">200 Trainees Enrolled in @Session["UNIT_NAME"] </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-xl-3 col-sm-6 mb-3" style="visibility:hidden";>
+                <div class="card text-white bg-primary o-hidden h-100">
+                    <div class="card-body">
+                        <div class="card-body-icon">
+                            <i class="fas fa-fw fa-list-alt"></i>
+                        </div>
+                        <div class="mr-5">86 Active Trainees in IFFCO</div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-xl-3 col-sm-6 mb-3" style="visibility:hidden";>
+                <div class="card text-white bg-info o-hidden h-100">
+                    <div class="card-body">
+                        <div class="card-body-icon">
+                            <i class="fas fa-fw fa-th-list"></i>
+                        </div>
+                        <div class="mr-5">854 Trainees Enrolled in IFFCO</div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Area Chart Example-->
+        <div class="card mb-3">
+            <div class="card-header">
+                <i class="fas fa-chart-area"></i>
+                Graphical Representation
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card-body">
+                        <canvas id="myPieChart" width="100%" height="35"></canvas>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card-body">
+                        <canvas id="myBarChart" width="100%" height="35"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- DataTables Example -->
+        <div class="card mb-3">
+            <div class="card-header">
+                <i class="fas fa-table"></i>
+                List of Vocational Trainee
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>VT code</th>
+                                <th>Name</th>
+                                <th>Institute</th>
+                                <th>Course</th>
+                                <th>Branch</th>
+                                <th>Training Period</th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <th>VT code</th>
+                                <th>Name</th>
+                                <th>Institute</th>
+                                <th>Course</th>
+                                <th>Branch</th>
+                                <th>Training Period</th>
+                            </tr>
+                        </tfoot>
+                        <tbody>
+                            <tr>
+                                <td>@Session["PERSONAL_NO"]</td>
+                                <td>@Session["GRADE_CODE"]</td>
+                                <td>@Session["EMP_NAME"]</td>
+                                <td>@Session["DESIGNATION"]</td>
+                                <td>@Session["UNIT_NAME"]</td>
+                                <td>@Session["UNIT_CODE"]</td>
+                            </tr>
+                            <tr>
+                                <td>VT0002</td>
+                                <td>Name 2</td>
+                                <td>Institute 2</td>
+                                <td>Course 2</td>
+                                <td>Branch 2</td>
+                                <td>Training Period 2</td>
+                            </tr>
+                            <tr>
+                                <td>VT0003</td>
+                                <td>Name 3</td>
+                                <td>Institute 3</td>
+                                <td>Course 3</td>
+                                <td>Branch 3</td>
+                                <td>Training Period 3</td>
+                            </tr>
+                            <tr>
+                                <td>VT0004</td>
+                                <td>Name 4</td>
+                                <td>Institute 4</td>
+                                <td>Course 4</td>
+                                <td>Branch 4</td>
+                                <td>Training Period 4</td>
+                            </tr>
+                            <tr>
+                                <td>VT0005</td>
+                                <td>Name 5</td>
+                                <td>Institute 5</td>
+                                <td>Course 5</td>
+                                <td>Branch 5</td>
+                                <td>Training Period 5</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- /.container-fluid -->
+    <!-- Sticky Footer -->
+    <footer class="sticky-footer">
+        <div class="container my-auto">
+            <div class="copyright text-center my-auto">
+                <span>Copyright © Vocational Trainee Management System - IFFCO Ltd.</span>
+            </div>
+        </div>
+    </footer>
+
+</div>
+
+@section Scripts {
+<script>
+    //Response.Write(@Session["PERSONAL_NO"]+@Session["GRADE_CODE"]+@Session["EMP_NAME"]+@Session["DESIGNATION"]+@Session["UNIT_NAME"]+@Session["UNIT_CODE"];
+    Response.Write("hello");
+</script>
+}

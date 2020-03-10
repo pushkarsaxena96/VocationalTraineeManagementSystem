@@ -1,0 +1,163 @@
+﻿
+@{
+    ViewBag.Title = "Institute";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="content-wrapper">
+
+    <div class="container-fluid">
+
+        <!-- ADD NEW INSTITUTE- button -->
+        <div class="mb-3">
+            <button class="btn btn-primary" data-toggle="modal" data-target="#Institute">Add Institute</button>
+        </div>
+
+        <!-- Breadcrumbs-->
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="~/Home">Dashboard</a>
+            </li>
+            <li class="breadcrumb-item active">
+                Master
+            </li>
+            <li class="breadcrumb-item active">Institute</li>
+        </ol>
+
+        <!-- DataTables Example -->
+        <div class="card mb-3">
+            <div class="card-header">
+                <i class="fas fa-table"></i>
+                Institute
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Institute Code</th>
+                                <th>Institute Name</th>
+                                <th>Institute Type</th>
+                                <th>University Name</th>
+                                <th>State</th>
+                                <th>District</th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <th>Institute Code</th>
+                                <th>Institute Name</th>
+                                <th>Institute Type</th>
+                                <th>University Name</th>
+                                <th>State</th>
+                                <th>District</th>
+                            </tr>
+                        </tfoot>
+                        <tbody is="ListInstitute">
+                                @foreach (var item in Model.ListInstitute)
+                                {
+                                    <tr>
+                                        <td>@item.InstituteCode</td>
+                                        <td>@item.InstituteName</td>
+                                        <td>@item.InstituteType</td>
+                                        <td>@item.UniversityName</td>
+                                        <td>@item.InstituteState</td>
+                                        <td>@item.InstituteDistrict</td>
+                                    </tr>
+
+                                }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+    <!-- /.container-fluid -->
+    <!-- Sticky Footer -->
+
+</div>
+<!-- /.content-wrapper -->
+<!------------------------------------------------add Institute----------------------------------------------------->
+<div class="modal fade" id="Institute" tabindex="-1" role="dialog" aria-labelledby="InstituteTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="InstituteTitle"><strong>Add Institute</strong></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!--<div class="container"> -->
+                <div class="card card-register">
+                    <!--  <div class="card-header">Register an Account</div> -->
+                    <div class="card-body">
+                        <form>
+                            <div class="form-group">
+                                <div class="form-row">
+                                    <div class="col-md-3">
+                                        <div class="form-label-group">
+                                            <input type="number" DISABLED id="InstituteCode" class="form-control" placeholder="Institute Code" required="required" autofocus="autofocus">
+                                            <label for="InstituteCode">Code</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <div class="form-label-group">
+                                            <input type="text" id="InstituteName" class="form-control" placeholder="Institute Name" required="required" autofocus="autofocus">
+                                            <label for="InstituteName">Institute Name</label>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-label-group">
+                                    <select name="Recommendation" class="form-control">
+                                        <option selected>Affiliated College
+                                        <option>Constituent / University College
+                                        <option>PG Center / Off-Campus Center
+                                        <option>Recognized Center
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-label-group">
+                                    <input type="University" id="University" class="form-control" placeholder="University" required="required">
+                                    <label for="University">University</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-row">
+                                    <div class="col-md-6">
+                                        <div class="form-label-group">
+                                            <input type="text" id="City" class="form-control" placeholder="City" required="required" autofocus="autofocus">
+                                            <label for="City">City</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-label-group">
+                                            <input type="text" id="State" class="form-control" placeholder="State" required="required" autofocus="autofocus">
+                                            <label for="State">State</label>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <a class="btn btn-primary btn-block" href="#" data-toggle="modal" data-target="#SavedRecordModal">Save</a>
+                        </form>
+                    </div>
+                    <!-- </div> -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

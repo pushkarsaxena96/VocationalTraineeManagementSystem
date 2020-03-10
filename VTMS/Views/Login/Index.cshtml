@@ -1,0 +1,59 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>VTMS</title>
+    <!-- Custom styles for this template-->
+    <link href="~/Content/Site.css" rel="stylesheet">
+</head>
+<body>
+       
+        <div class="container">            
+            <div class="card card-login mx-auto mt-5">
+                <!--<div class="card-header">Login</div> -->
+                <div class="card-body">
+                    <div align="center">
+                        <img src="~/Images/IFFCO logo_English.jpg" height=70 px;>
+                        <br />
+                        <h2 align="center" style="padding:5px"> Vocational Trainee Management System </h2>
+                        <br />
+                    </div>
+                    <form method="post" action="/Login/Index">
+                        @Html.AntiForgeryToken()
+                        <div class="form-group">
+                            <div class="form-label-group">
+                                @*<input type="number" id="PersonalNo" class="form-control" placeholder="Personal Number" required="required" autofocus="autofocus">*@
+                                @Html.TextBox("PersonalNo", null, new { @class = "form-control", placeholder = "Personal Number",  type = "number", autofocus = "autofocus", required = "required" })
+                                @Html.Label("PersonalNo", new { @class = "label" })
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-label-group">
+                                @*<input type="password" id="inputPassword" class="form-control" placeholder="Password" required="required">*@
+                                @Html.Password("Password", null, new { @class = "form-control", placeholder = "Password", type = "password", required = "required" })
+                                @Html.Label("Password", new { @class = "label" })
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-block" id="btnSubmit">Login</button>                    
+                        @if (@ViewBag.ErrMessage != null)
+                        {
+                            <div class="alert alert-danger"> <strong>Error! </strong> @ViewBag.ErrMessage</div>
+                        }
+                    </form>
+                </div>
+            </div>
+
+
+        </div>
+    
+
+</body>
+</html>

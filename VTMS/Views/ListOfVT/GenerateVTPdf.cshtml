@@ -1,0 +1,350 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>GenerateVTPDF-VTMS</title>
+    <!-- Custom styles for this template-->
+    <link href="~/Content/Site.css" rel="stylesheet">
+</head>
+<body>
+    <div id="content-wrapper">
+        <div class="container-fluid">
+
+            <!-- Progress Bar -->
+            <div class="card card-register">
+                <div class="card-header" style="font-size:30px;">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <img src="~/Images/IFFCO logo_English.jpg" style="width=100%;height:70px;">
+                        </div>
+                        <div class="col-md-10" style="padding-left:5%">
+                            <strong>INDIAN FARMERS FERTILISER COOPERATIVE LIMITED</strong>
+                        </div>
+                    </div>
+                    <div class="card-header" style="font-size:20px;" align="center">
+                        <strong>VOCATIONAL TRAINEE INFORMATION</strong>
+                    </div>
+                </div>
+
+
+                <!-- EMPLOYEE IMAGE -->
+                <div align=center>
+                    <img src="~/Images/img_avatar.png" style="width: 155px;height: 155px;border-radius: 50%; ">
+                    <br />
+                </div>
+
+                <!--  basic information -->
+                <div class="card card-register" id="accordion">
+                    <div class="card-header">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">Basic Information</a>
+                    </div>
+                    <div id="collapse1" class="card-body panel-default active">
+                        <form>
+                            <div class="form-group">
+                                <div class="form-row">
+                                    <div class="col-md-3">
+                                        <div class="form-label-group">
+                                            <input type="number" id="VTcode" class="form-control" placeholder="VT Code" required="required" autofocus="autofocus">
+                                            <label for="VTcode">Vocational Trainee Code</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-label-group">
+                                            <input type="text" id="firstName" class="form-control" placeholder="First name" required="required" autofocus="autofocus">
+                                            <label for="firstName">First name</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-label-group">
+                                            <input type="text" id="lastName" class="form-control" placeholder="Last name" required="required">
+                                            <label for="lastName">Last name</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-label-group">
+                                            <input type="date" id="DOB" class="form-control" placeholder="Date Of Birth" required="required">
+                                            <label for="DOB">Date of Birth</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-row">
+                                    <div class="col-md-3">
+                                        <div class="form-label-group">
+                                            <input type="text" id="FName" class="form-control" placeholder="Father name" required="required" autofocus="autofocus">
+                                            <label for="FName">Father Name</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-label-group">
+                                            <input type="number" id="ContactNo" class="form-control" placeholder="Contact Number" required="required">
+                                            <label for="ContactNo">Contact No.</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-label-group">
+                                            <input type="number" id="AltContactNo" class="form-control" placeholder="Alternate Contact Number" required="required">
+                                            <label for="AltContactNo">Alt Contact Number</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="form-label-group">
+                                    <input type="text" id="Address" class="form-control" placeholder="Address" required="required">
+                                    <label for="Address">Address</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-row">
+                                    <div class="col-md-3">
+                                        <div class="form-label-group">
+                                            <input type="text" id="City" class="form-control" placeholder="City" required="required">
+                                            <label for="City">City</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-label-group">
+                                            <input type="text" id="State" class="form-control" placeholder="State" required="required">
+                                            <label for="State">State</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-label-group">
+                                            <input type="number" id="Pincode" class="form-control" placeholder="Pincode" required="required">
+                                            <label for="Pincode">Pincode</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-label-group">
+                                            <input type="email" id="Email" class="form-control" placeholder="Email address" required="required">
+                                            <label for="Email">Email</label>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!--  BASIC INFORMATION ENDS -->
+                <!-- Academic Qualification Begins -->
+
+                <div class="card card-register" id="accordion">
+                    <div class="card-header">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">Academic Qualification</a>
+                    </div>
+                    <div id="collapse2" class="card-body panel-collapse ACTIVE">
+                        <form>
+                            <div class="form-group">
+                                <div class="form-row">
+                                    <div class="col-md-3">
+                                        <div class="form-label-group">
+                                            <input type="text" id="Course" class="form-control" placeholder="Course" required="required" autofocus="autofocus">
+                                            <label for="Course">Course</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-label-group">
+                                            <input type="year" id="Batch" class="form-control" placeholder="Batch" required="required">
+                                            <label for="Batch">Batch</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-label-group">
+                                            <input type="number" id="Semester" class="form-control" placeholder="Semester" required="required">
+                                            <label for="Semester">Semester</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-row">
+                                    <div class="col-md-6">
+                                        <div class="form-label-group">
+                                            <input type="text" id="Branch" class="form-control" placeholder="Branch" required="required" autofocus="autofocus">
+                                            <label for="Branch">Branch</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="form-label-group">
+                                            <input type="text" id="Institute" class="form-control" placeholder="Insititute" required="required">
+                                            <label for="Institute">Institute</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="form-row">
+                                    <div class="col-md-8">
+                                        <div class="form-label-group">
+                                            <input type="text" id="University" class="form-control" placeholder="University" required="required" autofocus="autofocus">
+                                            <label for="University">University</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <div class="form-label-group">
+                                            <input type="number" id="UniversityCont" class="form-control" placeholder="UniversityCont" required="required">
+                                            <label for="UniversityCont">University Contact No.</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-row">
+                                    <div class="col-md-3">
+                                        <div class="form-label-group">
+                                            <input type="text" id="City" class="form-control" placeholder="City" required="required">
+                                            <label for="City">City</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-label-group">
+                                            <input type="text" id="State" class="form-control" placeholder="State" required="required">
+                                            <label for="State">State</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-label-group">
+                                            <input type="number" id="Pincode" class="form-control" placeholder="Pincode" required="required">
+                                            <label for="Pincode">Pincode</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-label-group">
+                                            <input type="email" id="Email" class="form-control" placeholder="Email address" required="required">
+                                            <label for="Email">Email</label>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!-- Professional Qualification ends-->
+                <!-- Medical Fitness Begins -->
+                <div class="card card-register" id="accordion">
+                    <div class="card-header">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse5">Medical Fitness & Training Recommendation</a>
+                    </div>
+                    <div id="collapse5" class="card-body panel-collapse ACTIVE">
+                        <form>
+                            <div class="form-group">
+                                <div class="form-row">
+                                    <div class="col-md-2" style="padding-top:9px">
+                                        <strong>Medical Fitness</strong>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-label-group">
+                                            <input type="text" id="DoctorName" class="form-control" placeholder="Doctor Name" required="required">
+                                            <label for="DoctorName">Doctor Name</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-label-group">
+                                            <input type="number" id="DocRegistrationNo" class="form-control" placeholder="Doctor Registration No" required="required">
+                                            <label for="DocRegistrationNo">Registration No</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <div class="form-label-group">
+                                            <input type="text" id="MedicalRemarks" class="form-control" placeholder="Medical Remarks" required="required" autofocus="autofocus">
+                                            <label for="MedicalRemarks">Medical Fitness Remarks</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-row">
+                                    <div class="col-md-2" style="padding-top:9px">
+                                        <strong>Training Recommendation</strong>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-label-group">
+                                            <select name="Recommendation" class="form-control">
+                                                <option selected>IFFCO Employee
+                                                <option>Others
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-label-group">
+                                            <input type="number" id="IFFCORecomPersonalNo" class="form-control" placeholder="IFFCO Recommender Personal No." required="required">
+                                            <label for="IFFCORecomPersonalNo">Personal No.</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <div class="form-label-group">
+                                            <input type="text" id="IFFCORecommendationName" class="form-control" placeholder="IFFCO Recommender Name" required="required">
+                                            <label for="IFFCORecommendationName">Employee Name</label>
+                                        </div>
+                                    </div>
+                                    <!--      <div class="col-md-8">
+                                        <div class="form-label-group">
+                                          <input type="text" id="RecommendationName" class="form-control" placeholder="Recommender Name" required="required">
+                                          <label for="RecommendationName">Recommender Name</label>
+                                        </div>
+                                      </div>       -->
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!-- Medical Fitness ends-->
+                <!-- Declaration Begins -->
+                <div class="card card-register" id="accordion">
+                    <div class="card-header">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse4">Declaration</a>
+                    </div>
+                    <div id="collapse4" class="card-body panel-collapse ACTIVE">
+                        <form>
+                            <div class="form-group">
+                                <div class="form-row">
+                                    <div class="col-md-12">
+                                        I hereby declare that all the information made above is correct and true to the best of my knowledge and if any information furnished by me is found to be false or incorrect, my candidature may be cancelled. I will abide by terms and conditions of the vocational training and will not claim anything from IFFCO. <br />
+
+                                        At the end of training, one copy of the project report (hand written) will be submitted to the training department.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-row">
+                                    <div class="col-md-1">
+                                        <div class="form-label-group" style="margin-top:9px;" align="right">
+                                            <input type="checkbox" id="Declaration" class="form-control" placeholder="Declaration" required="required" style="width:auto">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-11" style="margin-top:2px;">
+                                        I accept the terms and conditions mentioned above
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!-- Declaration ends -->
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+    </div>
+    <script>
+        function yourfunction() { window.print(); }
+        window.onload = yourfunction;
+    </script>
+</body>
+
+</html>
